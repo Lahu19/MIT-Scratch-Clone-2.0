@@ -1,26 +1,26 @@
 import { store } from "../../../store";
 import { updateAngle } from "../../slice/spriteSlice";
 
-export const MoveStepsX = (type, i) => {
+export const MoveStepsX = (type) => {
   const el = document.getElementById(`${store.getState().sprite.active}-div`);
   const currentLeft = el.offsetLeft;
 
   el.style.position !== "relative" && (el.style.position = "relative");
-  let steps = i;
+  let steps = 0;
 
-  // switch (type) {
-  //   case "MOVEX_TEN":
-  //     steps = 10;
-  //     break;
-  //   case "MOVEX_FIFTEEN":
-  //     steps = 15;
-  //     break;
-  //   case "MOVEX_THIRTY":
-  //     steps = 30;
-  //     break;
-  //   default:
-  //     steps = 0;
-  // }
+  switch (type) {
+    case "MOVEX_TEN":
+      steps = 10;
+      break;
+    case "MOVEX_FIFTEEN":
+      steps = 15;
+      break;
+    case "MOVEX_THIRTY":
+      steps = 30;
+      break;
+    default:
+      steps = 0;
+  }
 
   el.style.left = currentLeft + steps + "px";
 };
